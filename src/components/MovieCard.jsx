@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Add this import for React Router Link
+import React from "react";
+import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
   return (
     <Link
-      to={`/movie/${movie.id}`} // Use Link instead of an anchor tag to navigate within SPA
+      to={`/movie/${movie.id}`}
       className="card mb-4 border-0"
       style={{
-        maxWidth: '100%',
-        height: '550px',
-        transition: 'box-shadow 0.3s ease',
-        textDecoration: 'none', // Prevent underline on the card link
+        maxWidth: "100%",
+        height: "550px",
+        transition: "box-shadow 0.3s ease",
+        textDecoration: "none",
       }}
     >
       <img
@@ -18,29 +18,29 @@ function MovieCard({ movie }) {
         className="card-img-top"
         alt={movie.title}
         style={{
-          height: '400px',
-          objectFit: 'cover',
+          height: "400px",
+          objectFit: "cover",
         }}
       />
       <div
         className="card-body d-flex flex-column p-3"
         style={{
-          height: '150px',
+          height: "150px",
         }}
       >
-        <h5 className="card-title" style={{ fontSize: '1.1rem' }}>
+        <h5 className="card-title" style={{ fontSize: "1.1rem" }}>
           {movie.title}
         </h5>
         <p
           className="card-text"
           style={{
-            fontSize: '0.9rem',
-            overflow: 'hidden',
-            height: '80px',
+            fontSize: "0.9rem",
+            overflow: "hidden",
+            height: "80px",
           }}
         >
           {movie.overview.length > 100
-            ? movie.overview.substring(0, 100) + '...'
+            ? movie.overview.substring(0, 100) + "..."
             : movie.overview}
         </p>
         <div className="mt-auto">

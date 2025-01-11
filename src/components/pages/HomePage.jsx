@@ -23,12 +23,26 @@ function HomePage() {
     <div className="container-fluid my-4 mt-5 text-light">
       <h1 className="text-center mb-4 mt-5 p-2"> </h1>
       {isLoading && (
-        <div className="d-flex justify-content-center align-items-center my-5" style={{ height: '50vh' }}>
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      )}
+  <div
+    style={{
+      position: 'fixed', // Keeps the loader in the center of the viewport
+      top: 0,
+      left: 0,
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'rgba(255, 255, 255, 0.8)',  
+      zIndex: 9999, 
+    }}
+  >
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div>
+)}
+
       {movies.length === 0 ? (
         <p>Loading...</p>
       ) : (
