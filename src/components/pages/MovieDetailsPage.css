@@ -1,92 +1,79 @@
-/* General styles for the movie-detail container */
 .movie-detail {
-    position: relative;
-    width: 100%;
-  }
-  
-  /* Full-width background image */
+  position: relative;
+  width: 100%;
+}
+
+.movie-detail__image {
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+  z-index: -1;
+}
+
+.movie-detail__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(14, 13, 13, 0.5);
+  width: 80%;
+  max-width: 800px;
+}
+
+.movie-detail__title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.movie-detail__overview {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.movie-detail__content p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+@media (max-width: 767px) {
   .movie-detail__image {
-    object-fit: cover;
-    width: 100%;
-    height: 500px;
-    z-index: -1; /* Make sure the image stays in the background */
+    height: 400px;
   }
-  
-  /* Title and Overview Container */
+
   .movie-detail__content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the content */
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: rgba(14, 13, 13, 0.5); /* Semi-transparent background */
-    width: 80%;
-    max-width: 800px; /* Limit the width */
+    width: 90%;
+    padding: 15px;
+    top: 40%;
   }
-  
-  /* Title Styling */
+
   .movie-detail__title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
   }
-  
-  /* Overview Styling */
+
   .movie-detail__overview {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
-  
-  /* Other text styling (Release Date, Rating) */
-  .movie-detail__content p {
     font-size: 1rem;
-    margin: 5px 0;
   }
-  
-  /* Responsive Design for Mobile & Smaller Screens */
-  @media (max-width: 767px) {
-    /* Image height on smaller screens */
-    .movie-detail__image {
-      height: 400px; /* Adjust image height on smaller screens */
-    }
-  
-    /* Content width and padding adjustments */
-    .movie-detail__content {
-      width: 90%; /* Take more width on mobile */
-      padding: 15px; /* Reduce padding */
-      top: 40%; /* Move content slightly up */
-    }
-  
-    /* Title styling for smaller screens */
-    .movie-detail__title {
-      font-size: 1.8rem; /* Smaller font size on mobile */
-    }
-  
-    /* Overview styling for smaller screens */
-    .movie-detail__overview {
-      font-size: 1rem; /* Adjust font size for mobile */
-    }
+}
+
+@media (max-width: 500px) {
+  .movie-detail__image {
+    height: 300px;
   }
-  
-  @media (max-width: 500px) {
-    /* Further adjustments for very small screens */
-    .movie-detail__image {
-      height: 300px; /* Reduce image height even further */
-    }
-  
-    .movie-detail__content {
-      width: 95%; /* Increase width on very small screens */
-      top: 30%; /* Move content higher up */
-      padding: 10px; /* Less padding for very small screens */
-    }
-  
-    .movie-detail__title {
-      font-size: 1.5rem; /* Further reduce title size */
-    }
-  
-    .movie-detail__overview {
-      font-size: 0.9rem; /* Reduce font size for overview */
-    }
+
+  .movie-detail__content {
+    width: 95%;
+    top: 30%;
+    padding: 10px;
   }
-  
+
+  .movie-detail__title {
+    font-size: 1.5rem;
+  }
+
+  .movie-detail__overview {
+    font-size: 0.9rem;
+  }
+}

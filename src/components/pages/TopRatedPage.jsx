@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { getTopRatedMovies } from '../api/movieApi';
-import MovieCard from '../MovieCard';
-import Pagination from '../Pagination';
+import { useEffect, useState } from "react";
+import { getTopRatedMovies } from "../api/movieApi";
+import MovieCard from "../MovieCard";
+import Pagination from "../Pagination";
 
 function TopRatedPage() {
   const [movies, setMovies] = useState([]);
@@ -10,39 +10,38 @@ function TopRatedPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
     getTopRatedMovies(page).then((response) => {
-
       setMovies(response.data.results);
       setTotalPages(response.data.total_pages);
-      setIsLoading(false); // End loading
+      setIsLoading(false);
     });
   }, [page]);
 
   return (
     <div className="container-fluid my-4 mt-5">
       <h1 className="mb-4 mt-5 p-2"> </h1>
-      {/* Loader */}
-    {isLoading && (
-  <div
-    style={{
-      position: 'fixed',  
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'rgba(255, 255, 255, 0.8)',  
-      zIndex: 9999,  
-    }}
-  >
-    <div className="spinner-border text-primary" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div>
-)}
+
+      {isLoading && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            zIndex: 9999,
+          }}
+        >
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
 
       {!isLoading && movies.length === 0 ? (
         <div className="d-flex justify-content-center">
@@ -57,7 +56,7 @@ function TopRatedPage() {
           ))}
         </div>
       )}
-      {/* Hide Pagination when loading */}
+
       {!isLoading && (
         <Pagination
           currentPage={page}

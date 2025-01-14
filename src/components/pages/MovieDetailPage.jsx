@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { getMovieDetails, getMovieCredits } from '../api/movieApi';
-import './Details.css';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { getMovieDetails, getMovieCredits } from "../api/movieApi";
+import "./Details.css";
 
 function MovieDetailPage() {
   const { id } = useParams();
@@ -28,7 +28,9 @@ function MovieDetailPage() {
         &larr; Back
       </div>
       <img
-        src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path || movie.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w1280${
+          movie.backdrop_path || movie.poster_path
+        }`}
         alt={movie.title}
         className="movie-detail__image"
       />
@@ -68,63 +70,34 @@ function MovieDetailPage() {
         </p>
       </div>
 
-      {/* Crew Section with Images */}
       <div className="col-lg-12 mt-5">
-  <h2 className="d-flex justify-content-center text-warning"><b>Cast</b></h2>
-  <div className="scroll-container">
-    <div className="scroll-content">
-      {credits.cast.slice(0, 6).map((member) => (
-        <div className="scroll-item" key={member.id}>
-          <div className="text-center">
-            <img
-              src={
-                member.profile_path
-                  ? `https://image.tmdb.org/t/p/w200${member.profile_path}`
-                  : 'https://via.placeholder.com/200x300?text=No+Image'
-              }
-              alt={member.name}
-              className="img-fluid rounded"
-            />
-            <p className="text-white mt-2">
-              <strong>{member.name}</strong>
-            </p>
-            <p className="text-white">{member.character}</p>
+        <h2 className="d-flex justify-content-center text-warning">
+          <b>Cast</b>
+        </h2>
+        <div className="scroll-container">
+          <div className="scroll-content">
+            {credits.cast.slice(0, 6).map((member) => (
+              <div className="scroll-item" key={member.id}>
+                <div className="text-center">
+                  <img
+                    src={
+                      member.profile_path
+                        ? `https://image.tmdb.org/t/p/w200${member.profile_path}`
+                        : "https://via.placeholder.com/200x300?text=No+Image"
+                    }
+                    alt={member.name}
+                    className="img-fluid rounded"
+                  />
+                  <p className="text-white mt-2">
+                    <strong>{member.name}</strong>
+                  </p>
+                  <p className="text-white">{member.character}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-
-  {/* <h2 className="d-flex justify-content-center text-warning mt-5"><b>Crew</b></h2>
-  <div className="scroll-container">
-    <div className="scroll-content">
-      {credits.crew.slice(0, 10).map((member) => (
-        <div className="scroll-item" key={member.id}>
-          <div className="text-center">
-            <img
-              src={
-                member.profile_path
-                  ? `https://image.tmdb.org/t/p/w200${member.profile_path}`
-                  : 'https://via.placeholder.com/200x300?text=No+Image'
-              }
-              alt={member.name}
-              className="img-fluid rounded"
-            />
-            <p className="text-white mt-2">
-              <strong>{member.name}</strong>
-            </p>
-            <p className="text-white">{member.job}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div> */}
-  
-</div>
-
-
-
-
+      </div>
     </div>
   );
 }
